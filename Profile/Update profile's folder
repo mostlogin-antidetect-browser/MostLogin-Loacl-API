@@ -1,0 +1,93 @@
+# Update profile's folder
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/profile/updateProfileFolder:
+    post:
+      summary: Update profile's folder
+      deprecated: false
+      description: >
+        Allows batch updating of the folders bound to profiles.
+
+
+        `folderId` can be obtained from the `/api/folder/list` endpoint or
+        returned by the `/api/folder/add` endpoint.
+      tags:
+        - Profile
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: ''
+              type: object
+              properties:
+                folderId:
+                  type: string
+                  description: The folder ID
+                ids:
+                  type: string
+                  description: The profile ID
+              x-apifox-orders:
+                - ids
+                - folderId
+              required:
+                - ids
+            example:
+              ids:
+                - d6255fc4f8fe4e8fbe2b419d880897b2
+                - c5071a3595aa4934b2645198afe40478
+              folderId: 2c92b02398a25c370198a267782d000a
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Profile
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409805-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
