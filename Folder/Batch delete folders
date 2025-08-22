@@ -1,0 +1,85 @@
+# Batch delete folders
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/folder/batch/delete:
+    post:
+      summary: Batch delete folders
+      deprecated: false
+      description: ''
+      tags:
+        - Folder
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: |
+                    A collection of folder IDs.
+              x-apifox-orders:
+                - ids
+              required:
+                - ids
+            example:
+              ids:
+                - 2c92b02398a1a32a0198a1faf5610000
+                - 2c92b02398a246e10198a25039760004
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Folder
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409864-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
