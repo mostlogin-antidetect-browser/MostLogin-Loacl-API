@@ -49,7 +49,7 @@ Log in to the MostLogin console → [API Management] → Generate Access Token
 - [x] Each API key can make a maximum of 20 requests per second
 <br />
 
-> ## What the Local API supports
+> ## What the MostLogin REST API supports
 - [x] Folder Management
   - [x] Get folder list
   - [x] Add a folder
