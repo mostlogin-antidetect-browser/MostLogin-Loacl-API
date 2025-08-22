@@ -78,8 +78,8 @@ Log in to the MostLogin console → [API Management] → Generate Access Token
   - [x] Delete proxies
 - [x] Quit app
 - [x] Schemas
- - [x] Schemas
- - [x] Response
+  - [x] Schemas
+  - [x] Response
 <br />
 
 # About MostLogin Antidetect Browser
