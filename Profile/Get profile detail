@@ -1,0 +1,346 @@
+# Get profile detail
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/profile/detail:
+    post:
+      summary: Get profile detail
+      deprecated: false
+      description: ''
+      tags:
+        - Profile
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-apifox-orders:
+                - profileId
+              properties:
+                profileId:
+                  type: string
+                  description: The profile ID
+              required:
+                - profileId
+            example:
+              profileId: d6255fc4f8fe4e8fbe2b419d880897b2
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                x-apifox-orders: []
+                properties: {}
+              example:
+                allowMultipleOpenings: 1
+                autofillList: []
+                belongToMe: false
+                cookie: >-
+                  [{"domain":".google.com.hk","expirationDate":1765528457,"hostOnly":false,"httpOnly":true,"name":"NID","path":"/","sameSite":"no_restriction","secure":true,"session":false,"storeId":"0","value":"524=EhNBoM1iqv-G5B6hyOlKwquTFayaU7ToBaUifX4ulODXN84jYy8Gv4BQiHCVg-GX0rvY6uljVDt7aUxytbX6iAhqmLAEgAygx5fta8tM8RdNy_Mz_WwQxj9WMRKiKLHqmSdJZ2jGW2bOUhWLvM9pHvSQaePzLODzJYOcD7xCPIWAFdsB6XKqPHGm8tQdGTlPLoCI9Ou2j4JL2H4jbzkafqY"},{"domain":".helper.mostlogin.com","hostOnly":false,"httpOnly":false,"name":"ProfileId","path":"/","sameSite":"unspecified","secure":true,"session":true,"storeId":"0","value":"d6255fc4f8fe4e8fbe2b419d880897b2"},{"domain":".helper.mostlogin.com","hostOnly":false,"httpOnly":false,"name":"ServerPort","path":"/","sameSite":"unspecified","secure":true,"session":true,"storeId":"0","value":"30898"},{"domain":".google.com","expirationDate":1767082340.019446,"hostOnly":false,"httpOnly":true,"name":"NID","path":"/","sameSite":"no_restriction","secure":true,"session":false,"storeId":"0","value":"525=h8CSYfs7AtD__kc6UK9usrv0-eTTzbsqqcjk0ctnFxXbvbjVEU4DqdsZpGGhUFZrsp9_akfly3L2fjmifH-_tMA1NlCJFCPPwSzb2hWHbCTlSEK7Kj1hyvUddE4pB_6SMIeNbZtv0IYLieNMyoJf_CIAQ7TTjUSvyNOA8R_KgpYb7y6TdJclBx_vfNYoV5nMoZCoZg"}]
+                extensionInfoList: []
+                fingerprint:
+                  architecture: x86
+                  audioContextNoise: true
+                  audioContextNoiseValue: 20
+                  bitNess: 64
+                  canvasNoise: true
+                  canvasNoiseValue: 289424
+                  clientRectsNoise: true
+                  clientRectsNoiseValue: 62439
+                  colorDepth: 24
+                  computerName: DESKTOP-3UNCUZ3L
+                  coreVersion: '134'
+                  deviceInfoEnabled: true
+                  deviceMemory: 8
+                  devicePixelRatio: 1
+                  doNotTrack: false
+                  enablePlugins: false
+                  enableSSL: false
+                  fonts: >-
+                    Chiller;Chiller;Chiller-Regular,Miriam Mono CLM;Miriam Mono
+                    CLM Book Oblique;MiriamMonoCLM-BookOblique,Franklin Gothic
+                    Heavy;Franklin Gothic Heavy;FranklinGothic-Heavy,Bodoni
+                    MT;Bodoni MT Bold Italic;BodoniMT-BoldItalic,Noto Sans;Noto
+                    Sans SemiBold
+                    Display;Noto-Sans-SemiBold-Display,Pristina;Pristina;Pristina-Regular,Noto
+                    Sans;Noto Sans SemiBold;Noto-Sans-SemiBold,Gill Sans MT;Gill
+                    Sans MT Bold
+                    Italic;GillSansMT-BoldItalic,Italic;Italic_IV50;Italic_IV50,Monospac821
+                    BT;Monospace 821 BT;Monospace821BT-Roman
+                  geolocation: 2
+                  geolocationFollowIp: true
+                  hardwareConcurrency: 6
+                  ignoreHttpsErrors: false
+                  iswow64: false
+                  kernelVersion: '134'
+                  languageFollowIp: true
+                  macAddr: 80-32-53-E7-8B-28
+                  mediaDeviceNoise: true
+                  mediaDeviceNoiseValue: >-
+                    {"videoinput":["Integrated Camera (174f:181d)","Integrated
+                    Webcam (0bda:576d)","USB2.0 UVC HD Webcam
+                    (13d3:5188)"],"audiooutput":["ZoomAudioDevice
+                    (Virtual)","Communications - Speaker/HP (3- Realtek High
+                    Definition Audio)","GX32 (2- NVIDIA High Definition
+                    Audio)"],"audioinput":["Default - Digital Microphone (Cirrus
+                    Logic High Definition Audio)","Digital Microphone (Cirrus
+                    Logic High Definition Audio)","Default - Internal Microphone
+                    (Conexant 20672 SmartAudio HD)"]}
+                  modelName: DESKTOP-LSRDOVBP
+                  navigatorVendor: Google Inc.
+                  openHeight: 720
+                  openWidth: 1280
+                  os: Win32
+                  osVersion: '10'
+                  platformVersion: 10.0.0
+                  portScanProtection: true
+                  product: chrome
+                  randomFonts: true
+                  resolutionType: 1
+                  speechVoiceNoise: true
+                  speechVoiceNoiseValue:
+                    - default: false
+                      is_remote: false
+                      lang: en-US
+                      name: Microsoft David - English (United States)
+                      voice_uri: Microsoft David - English (United States)
+                    - default: false
+                      is_remote: false
+                      lang: id-ID
+                      name: >-
+                        Microsoft Gadis Online (Natural) - Indonesian
+                        (Indonesia)
+                      voice_uri: >-
+                        Microsoft Gadis Online (Natural) - Indonesian
+                        (Indonesia)
+                    - default: false
+                      is_remote: false
+                      lang: uk-UA
+                      name: Microsoft Polina Online (Natural) - Ukrainian (Ukraine)
+                      voice_uri: Microsoft Polina Online (Natural) - Ukrainian (Ukraine)
+                    - default: false
+                      is_remote: false
+                      lang: zh-CN
+                      name: Microsoft Huihui - Chinese (Simplified, PRC)
+                      voice_uri: Microsoft Huihui - Chinese (Simplified, PRC)
+                    - default: false
+                      is_remote: false
+                      lang: zh-CN
+                      name: Microsoft Kangkang - Chinese (Simplified, PRC)
+                      voice_uri: Microsoft Kangkang - Chinese (Simplified, PRC)
+                    - default: false
+                      is_remote: false
+                      lang: zh-CN
+                      name: Microsoft Yaoyao - Chinese (Simplified, PRC)
+                      voice_uri: Microsoft Yaoyao - Chinese (Simplified, PRC)
+                    - default: false
+                      is_remote: true
+                      lang: zh-CN
+                      name: Google 普通话（中国大陆）
+                      voice_uri: Google 普通话（中国大陆）
+                    - default: false
+                      is_remote: true
+                      lang: zh-HK
+                      name: Google 粤語（香港）
+                      voice_uri: Google 粤語（香港）
+                    - default: false
+                      is_remote: true
+                      lang: zh-TW
+                      name: Google 國語（臺灣）
+                      voice_uri: Google 國語（臺灣）
+                    - default: false
+                      is_remote: true
+                      lang: ja-JP
+                      name: Google 日本語
+                      voice_uri: Google 日本語
+                    - default: false
+                      is_remote: true
+                      lang: de-DE
+                      name: Google Deutsch
+                      voice_uri: Google Deutsch
+                    - default: false
+                      is_remote: true
+                      lang: en-US
+                      name: Google US English
+                      voice_uri: Google US English
+                    - default: false
+                      is_remote: true
+                      lang: en-GB
+                      name: Google UK English Female
+                      voice_uri: Google UK English Female
+                    - default: false
+                      is_remote: true
+                      lang: en-GB
+                      name: Google UK English Male
+                      voice_uri: Google UK English Male
+                    - default: false
+                      is_remote: true
+                      lang: es-ES
+                      name: Google español
+                      voice_uri: Google español
+                    - default: false
+                      is_remote: true
+                      lang: es-US
+                      name: Google español de Estados Unidos
+                      voice_uri: Google español de Estados Unidos
+                    - default: false
+                      is_remote: true
+                      lang: fr-FR
+                      name: Google français
+                      voice_uri: Google français
+                    - default: false
+                      is_remote: true
+                      lang: hi-IN
+                      name: Google हिन्दी
+                      voice_uri: Google हिन्दी
+                    - default: false
+                      is_remote: true
+                      lang: id-ID
+                      name: Google Bahasa Indonesia
+                      voice_uri: Google Bahasa Indonesia
+                    - default: false
+                      is_remote: true
+                      lang: pl-PL
+                      name: Google polski
+                      voice_uri: Google polski
+                    - default: false
+                      is_remote: true
+                      lang: ru-RU
+                      name: Google русский
+                      voice_uri: Google русский
+                    - default: false
+                      is_remote: true
+                      lang: pt-BR
+                      name: Google português do Brasil
+                      voice_uri: Google português do Brasil
+                    - default: false
+                      is_remote: true
+                      lang: it-IT
+                      name: Google italiano
+                      voice_uri: Google italiano
+                    - default: false
+                      is_remote: true
+                      lang: ko-KR
+                      name: Google 한국의
+                      voice_uri: Google 한국의
+                  timeZoneFollowIp: true
+                  totalDiskSpace: 2397913088
+                  uaFullVersion: 134.0.6998.178
+                  uaPlatform: Windows
+                  uamodel: ''
+                  uiLanguageType: 2
+                  userAgent: >-
+                    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+                    (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+                  webGLManufacturer: Google Inc. (AMD)
+                  webGLMeta: true
+                  webGLRender: >-
+                    ANGLE (AMD, AMD Radeon Pro WX 3100 Direct3D11 vs_5_0 ps_5_0,
+                    D3D11-31.0.14051.5006)
+                  webRTC: privacy
+                  webglNoise: true
+                  webglNoiseValue: 449854
+                  webglParametersCode: '18'
+                  webgpu:
+                    architecture: gcn-4
+                    vendor: amd
+                folderName: Default folder 25740
+                id: d6255fc4f8fe4e8fbe2b419d880897b2
+                preference:
+                  blockClipboard: false
+                  blockGoogleTranslation: false
+                  blockImages: false
+                  blockNotificationPopup: false
+                  blockSavePasswordPopup: false
+                  blockSiteSound: false
+                  blockVideo: false
+                  deleteCacheAfterClose: false
+                  gpu: false
+                  memorySaver: false
+                  randomFingerprint: false
+                  stopOpeningOnNetError: true
+                  stopOpeningOnSynchronizationFailed: false
+                  syncAutofill: true
+                  syncBookmarks: false
+                  syncCookies: true
+                  syncExtensions: false
+                  syncHistory: false
+                  syncIndexedDB: false
+                  syncLocalStorage: false
+                  syncTabs: true
+                proxy:
+                  duplicateCheck: false
+                  host: 1.2.3.4
+                  ipCheckService: MaxMind
+                  lastCountry: DE
+                  lastIp: 1.2.3.4
+                  port: 59059
+                  protocol: socks5
+                  proxyMethod: 4
+                  proxyPassword: '111'
+                  proxyUsername: '222'
+                seq: 36
+                sk: >-
+                  546a21ef9988428203fc086a4f87885e1751c4d8f2afc19c7f255d45f28826c6
+                status: 0
+                workbench: 1
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Profile
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409799-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
