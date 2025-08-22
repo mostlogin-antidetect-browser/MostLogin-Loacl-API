@@ -1,0 +1,90 @@
+# Close browser profile
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/browser/closeProfiles:
+    post:
+      summary: Close browser profile
+      deprecated: false
+      description: ''
+      tags:
+        - Browser
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                profileIds:
+                  type: array
+                  items:
+                    type: string
+                    minLength: 32
+                    maxLength: 32
+              required:
+                - profileIds
+              x-apifox-orders:
+                - profileIds
+            example:
+              profileIds:
+                - d6255fc4f8fe4e8fbe2b419d880897b2
+      responses:
+        '204':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                value:
+                  type: 'null'
+                type: string
+          headers: {}
+          x-apifox-name: No Content
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Browser
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409796-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
