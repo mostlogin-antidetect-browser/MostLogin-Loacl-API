@@ -1,0 +1,149 @@
+# Add a basic proxy
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/proxy/createBaseProxy:
+    post:
+      summary: Add a basic proxy
+      deprecated: false
+      description: >
+        Add proxy information. The added proxy can be used for assigning to a
+        profile.
+      tags:
+        - Proxy
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-apifox-orders:
+                - host
+                - port
+                - protocol
+                - proxyMethod
+                - proxyUsername
+                - proxyPassword
+                - publicViewing
+                - repeatItem
+                - rotateUrl
+              properties:
+                host:
+                  type: string
+                  description: |
+                    proxy host
+                port:
+                  type: integer
+                  description: proxy port
+                protocol:
+                  type: string
+                  default: socks5
+                  description: 'proxy protocol, could be: socks5, http, https, ssh'
+                proxyMethod:
+                  type: integer
+                  description: |
+                    The default value is `0`; no changes are required.
+                  default: 0
+                proxyPassword:
+                  type: string
+                  description: proxy password
+                proxyUsername:
+                  type: string
+                  description: proxy username
+                publicViewing:
+                  type: integer
+                  default: 0
+                  description: |
+                    Access permissions. Optional values:
+
+                    0: Me
+                    1: Team view
+                    2: Team edit
+                repeatItem:
+                  type: boolean
+                  description: Do not add duplicated proxies
+                rotateUrl:
+                  type: string
+                  description: >
+                    If your proxy information supports refreshing via
+                    `rotateUrl`, you can fill in this field.
+              required:
+                - host
+                - port
+                - protocol
+                - proxyMethod
+                - proxyPassword
+                - proxyUsername
+                - publicViewing
+                - repeatItem
+                - rotateUrl
+            example:
+              protocol: socks5
+              host: 127.0.0.1
+              port: 10809
+              proxyUsername: name
+              proxyPassword: pass
+              rotateUrl: https://testip.com
+              repeatItem: false
+              publicViewing: 0
+              proxyMethod: 0
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Proxy
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409988-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
