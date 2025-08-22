@@ -1,0 +1,42 @@
+# HTTPNodeConfig
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    HTTPNodeConfig:
+      properties:
+        header:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Header
+          x-apifox-orders: []
+        host:
+          type: string
+          x-go-name: Host
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - header
+        - host
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
