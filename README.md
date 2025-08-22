@@ -16,9 +16,13 @@ No language restrictions: The documentation offers example calls in 10+ developm
 # Instantly experience the three-step integration
 Obtain the key： Log in to the MostLogin console → [API Management] → Generate Access Token
 Refer to the documentation： Full API functionality documentation
+
 1.Environment management (/env/create)
+
 2.Fingerprint parameter configuration (/fingerprint/update)
+
 3.Proxy IP binding (/proxy/attach)
+
 # Notes for Attention
 Prerequisites
 (1) Ensure that your MostLogin client application is running and accessible.
