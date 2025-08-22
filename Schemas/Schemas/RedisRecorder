@@ -1,0 +1,52 @@
+# RedisRecorder
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    RedisRecorder:
+      properties:
+        addr:
+          type: string
+          x-go-name: Addr
+        db:
+          format: int64
+          type: integer
+          x-go-name: DB
+        key:
+          type: string
+          x-go-name: Key
+        password:
+          type: string
+          x-go-name: Password
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - addr
+        - db
+        - key
+        - password
+        - type
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
