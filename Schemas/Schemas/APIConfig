@@ -1,0 +1,64 @@
+# APIConfig
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    AuthConfig:
+      properties:
+        password:
+          type: string
+          x-go-name: Password
+        username:
+          type: string
+          x-go-name: Username
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - password
+        - username
+      x-apifox-folder: ''
+    APIConfig:
+      properties:
+        accesslog:
+          type: boolean
+          x-go-name: AccessLog
+        addr:
+          type: string
+          x-go-name: Addr
+        auth:
+          $ref: '#/components/schemas/AuthConfig'
+        auther:
+          type: string
+          x-go-name: Auther
+        pathPrefix:
+          type: string
+          x-go-name: PathPrefix
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - accesslog
+        - addr
+        - auth
+        - auther
+        - pathPrefix
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
