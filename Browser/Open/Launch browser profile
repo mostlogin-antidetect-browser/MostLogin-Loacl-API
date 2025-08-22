@@ -1,0 +1,93 @@
+# Open/Launch browser profile
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/browser/openBrowser:
+    post:
+      summary: Open/Launch browser profile
+      deprecated: false
+      description: >-
+        Open a profile window using `profileID`. 
+
+
+        The `profileID` can be obtained from the `/api/profile/getProfiles`
+        endpoint or returned by `/api/profile/quickCreateProfile`. 
+
+
+        It is recommended to use `quickCreateProfile` to create the profile and
+        record the returned ID.
+      tags:
+        - Browser
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            example:
+              profileId: d878e732552a422e87942b2a4938265c
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              example:
+                ws: >-
+                  ws://127.0.0.1:59948/devtools/browser/e45a2b5b-4984-47c5-85f8-3ff90ca27185
+                port: 59948
+                pid: 36339
+                seq: 36
+          headers: {}
+          x-apifox-name: Success
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Browser
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-336103612-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
