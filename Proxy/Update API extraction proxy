@@ -1,0 +1,120 @@
+# Update API extraction proxy
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/proxy/updateApiExtractionProxy:
+    post:
+      summary: Update API extraction proxy
+      deprecated: false
+      description: ''
+      tags:
+        - Proxy
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                protocol:
+                  type: string
+                  description: 'proxy protocol, could be: socks5, http, https, ssh'
+                  default: socks5
+                extractMethod:
+                  type: integer
+                  default: 0
+                  description: |-
+                    0: extract new IP on each profile opening.
+                    1: extract new IP only when previous IP expires.
+                extractionUrl:
+                  type: string
+                  description: Your proxy extraction api url
+                publicViewing:
+                  type: integer
+                  description: |
+                    Access permissions. Optional values:
+
+                    0: Me
+                    1: Team view
+                    2: Team edit
+                id:
+                  type: string
+                  description: The proxy ID
+              required:
+                - protocol
+                - extractMethod
+                - extractionUrl
+                - publicViewing
+                - id
+              x-apifox-orders:
+                - id
+                - protocol
+                - extractMethod
+                - extractionUrl
+                - publicViewing
+            example:
+              protocol: socks5
+              extractMethod: 0
+              extractionUrl: https://test-extraction.com2222/extract
+              publicViewing: 0
+              id: 78c9c3971d8f4b00ace9ae4ee695df0f
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Proxy
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409993-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
