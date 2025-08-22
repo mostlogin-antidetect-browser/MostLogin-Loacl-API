@@ -1,7 +1,7 @@
 # MostLogin-REST-API
 MostLogin Local API supports Chromedriver/CDP-based automation frameworks (e.g., Selenium/Playwright/Puppeteer). It provides standard RESTful interfaces, supports high-concurrency calls without programming language restrictions. Documentation offers invocation examples in Python, JavaScript, Go, and 10+ other languages.
 <br />
-> ## The core value of this upgrade
+> ## The core value of MostLogin API
 We understand that multi-account management is not only a technical challenge but also the core defense line for business security. The newly opened API will provide you with:
 - Efficiency revolution
 Creating/managing 1,000+ independent environments with a single API call is only required, and the deployment efficiency is increased by 10 times, eliminating the need for manual repetitive operations
