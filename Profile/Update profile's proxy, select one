@@ -1,0 +1,91 @@
+# Update profile's proxy, select one
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/profile/updateProfileSelectProxy:
+    post:
+      summary: Update profile's proxy, select one
+      deprecated: false
+      description: >
+        Modify the profile’s proxy information by selecting one from the
+        existing proxy list.
+      tags:
+        - Profile
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+                    description: Profile ID
+                proxyId:
+                  type: string
+                  description: Proxy ID
+              required:
+                - ids
+                - proxyId
+              x-apifox-orders:
+                - ids
+                - proxyId
+            example:
+              ids:
+                - ab7f0892eaac42398b608d569ef3c195
+              proxyId: bed85775f1fe43b38e29e1be8e07e5cf
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Profile
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-336058842-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
