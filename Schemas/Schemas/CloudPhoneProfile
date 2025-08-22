@@ -1,0 +1,162 @@
+# CloudPhoneProfile
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    CloudPhoneProfile:
+      type: object
+      properties:
+        computeType:
+          type: integer
+          title: 算力类型
+          description: 0|1|2
+          enum:
+            - 0
+            - 1
+            - 2
+          x-apifox-enum:
+            - value: 0
+              name: 智能分配算力
+              description: ''
+            - value: 1
+              name: 临时算力
+              description: ''
+            - value: 2
+              name: 包月算力
+              description: ''
+        name:
+          type: string
+          title: 环境名称
+          description: 最多30个字符
+        remark:
+          type: string
+          title: 环境备注
+          description: 最多500个字符
+        port:
+          type: integer
+          title: 代理端口
+        proxyUserName:
+          type: string
+          title: 代理账号
+          description: 最多200个字符
+        proxyPassword:
+          type: string
+          title: 代理密码
+          description: 最多200个字符
+        host:
+          type: string
+          title: 代理主机
+        regionId:
+          type: string
+          title: 算力类型ID
+          description: 算力类型ID，到页面中，创建环境时，顶部算力类型，选中类型后，点击右边的复制按钮，复制ID
+        cloudPhonesFingerPrint:
+          type: object
+          properties:
+            isIpCreatePosition:
+              type: boolean
+              title: 基于IP生成对应的地理位置，不开启可自定义
+              description: 默认true
+            isIpCreateLanguage:
+              type: boolean
+              title: 基于IP生成对应国家的手机系统语言
+              description: 默认true
+            isIpCreateTimeZone:
+              type: boolean
+              title: 基于IP生成对应的时区
+              description: 默认true
+            timeZone:
+              type: string
+              title: 当 isIpCreateTimeZone 为false时，自定义设置时区
+            timeZoneOffset:
+              type: integer
+              title: 当 isIpCreateTimeZone 为false 时，自定义设置时区偏移量
+            localeLanguage:
+              type: string
+              title: 当 isIpCreateLanguage 为false时自定义设置语言
+            longitude:
+              type: string
+              title: 当 isIpCreatePosition 为false时自定义设置
+              description: 经度
+            latitude:
+              type: string
+              description: 纬度
+              title: 当 isIpCreatePosition 为false时自定义设置
+          x-apifox-orders:
+            - isIpCreatePosition
+            - isIpCreateLanguage
+            - isIpCreateTimeZone
+            - timeZone
+            - timeZoneOffset
+            - localeLanguage
+            - longitude
+            - latitude
+          title: 指纹配置
+        ipCheckService:
+          type: string
+          title: 代理IP查询渠道
+          description: 当检测到的IP地址信息与实际信息不符时，可更换查询渠道
+          enum:
+            - ip123in
+            - ip-api
+          x-apifox-enum:
+            - value: ip123in
+              name: IP123
+              description: ''
+            - value: ip-api
+              name: IP-API
+              description: ''
+        udp:
+          type: integer
+          title: 代理UDP协议
+          description: 无法连接网络时，可以尝试关闭UDP，不建议关闭
+          enum:
+            - 1
+            - 0
+          x-apifox-enum:
+            - value: 1
+              name: 开启UDP，默认开启
+              description: ''
+            - value: 0
+              name: 不开启
+              description: ''
+      required:
+        - computeType
+        - proxyUserName
+        - proxyPassword
+        - host
+        - regionId
+        - port
+      x-apifox-orders:
+        - regionId
+        - computeType
+        - name
+        - remark
+        - host
+        - port
+        - proxyUserName
+        - proxyPassword
+        - ipCheckService
+        - udp
+        - cloudPhonesFingerPrint
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
