@@ -1,0 +1,130 @@
+# Quick create a profile
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/profile/quickCreateProfile:
+    post:
+      summary: Quick create a profile
+      deprecated: false
+      description: ''
+      tags:
+        - Profile
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-apifox-orders:
+                - os
+                - product
+                - folderId
+                - coreVersion
+              properties:
+                os:
+                  type: string
+                  description: |-
+                    The operation system value, options should be:
+
+                    {
+                      WINDOWS = 'Win32',
+                      MAC = 'MacIntel',
+                      LINUX = 'Linux x86_64',
+                      IOS = 'iPhone',
+                      ANDROID = 'Linux armv81',
+                    }
+                product:
+                  type: string
+                  default: chrome
+                  description: |
+                    Fixed as `chrome`.
+                folderId:
+                  type: string
+                  description: The folder ID
+                coreVersion:
+                  type: string
+                  description: >
+                    Kernel version. Optional values: `138`, `136`, `134`, `132`,
+                    `130`.
+                  default: '138'
+              required:
+                - os
+                - product
+                - folderId
+                - coreVersion
+            example:
+              os: MacIntel
+              product: chrome
+              title: Test title
+              folderId: 2c92b02398a25c370198a267782d000a
+              coreVersion: '138'
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                x-apifox-orders: []
+                properties: {}
+              example:
+                folderId: 2c92b02398a25c370198a267782d000a
+                id: 2af3516e6e50404a8589fe2e0f3cdf06
+                title: Test title
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Profile
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409951-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
