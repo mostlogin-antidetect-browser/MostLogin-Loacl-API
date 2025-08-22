@@ -1,0 +1,34 @@
+# Duration
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    Duration:
+      description: |-
+        A Duration represents the elapsed time between two instants
+        as an int64 nanosecond count. The representation limits the
+        largest representable duration to approximately 290 years.
+      format: int64
+      type: integer
+      x-go-package: time
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
