@@ -1,0 +1,43 @@
+# createIngressResponse
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    createIngressResponse:
+      $ref: '#/components/schemas/Response'
+      x-apifox-folder: ''
+    Response:
+      properties:
+        code:
+          format: int64
+          type: integer
+          x-go-name: Code
+        msg:
+          type: string
+          x-go-name: Msg
+      type: object
+      x-go-package: github.com/go-gost/x/api
+      x-apifox-orders:
+        - code
+        - msg
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
