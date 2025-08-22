@@ -1,0 +1,36 @@
+# SockOptsConfig
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    SockOptsConfig:
+      properties:
+        mark:
+          format: int64
+          type: integer
+          x-go-name: Mark
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - mark
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
