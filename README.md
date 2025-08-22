@@ -47,3 +47,36 @@ Log in to the MostLogin console → [API Management] → Generate Access Token
 - Rate Limiting
 - [x] Maximum request frequency:
 - [x] Each API key can make a maximum of 20 requests per second
+<br />
+
+> ## What the Local API supports
+- [x] Folder Management
+  - [x] Get folder list
+  - [x] Add a folder
+  - [x] Batch delete folders
+  - [x] Batch update folders
+- [x] Profile Management
+  - [x] Get Profile list
+  - [x] Quick create a profile
+  - [x] Get profile detail
+  - [x] Update profile's folder
+  - [x] Update profile's base proxy
+  - [x] Update profile's api extraction proxy
+  - [x] Update profile's proxy, select one
+  - [x] Move profiles to recycle bin
+- [x] Browser Operation
+  - [x] Open/Launch browser profile
+  - [x] Close browser profile
+  - [x] Close all profiles
+- [x] Proxy Management
+  - [x] Get proxy list
+  - [x] Proxy detect
+  - [x] Add a basic proxy
+  - [x] Update basic proxy
+  - [x] Add a API extraction proxy
+  - [x] Update API extraction proxy
+  - [x] Delete proxies
+- [x] Quit app
+- [x] Schemas
+ - [x] Schemas
+ - [x] Response
