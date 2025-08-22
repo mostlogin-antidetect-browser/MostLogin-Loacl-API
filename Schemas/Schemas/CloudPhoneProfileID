@@ -1,0 +1,37 @@
+# CloudPhoneProfileID
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    CloudPhoneProfileID:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 从界面中环境列表，点击配置后复制，或者从云手机环境list接口中获取
+          title: 云手机环境ID
+      x-apifox-orders:
+        - id
+      required:
+        - id
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
