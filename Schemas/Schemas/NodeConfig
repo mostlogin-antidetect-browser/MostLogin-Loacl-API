@@ -1,0 +1,272 @@
+# NodeConfig
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    TLSOptions:
+      properties:
+        cipherSuites:
+          items:
+            type: string
+          type: array
+          x-go-name: CipherSuites
+        maxVersion:
+          type: string
+          x-go-name: MaxVersion
+        minVersion:
+          type: string
+          x-go-name: MinVersion
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - cipherSuites
+        - maxVersion
+        - minVersion
+      x-apifox-folder: ''
+    TLSNodeConfig:
+      properties:
+        options: &ref_0
+          $ref: '#/components/schemas/TLSOptions'
+        secure:
+          type: boolean
+          x-go-name: Secure
+        serverName:
+          type: string
+          x-go-name: ServerName
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - options
+        - secure
+        - serverName
+      x-apifox-folder: ''
+    TLSConfig:
+      properties:
+        caFile:
+          type: string
+          x-go-name: CAFile
+        certFile:
+          type: string
+          x-go-name: CertFile
+        commonName:
+          type: string
+          x-go-name: CommonName
+        keyFile:
+          type: string
+          x-go-name: KeyFile
+        options: *ref_0
+        organization:
+          type: string
+          x-go-name: Organization
+        secure:
+          type: boolean
+          x-go-name: Secure
+        serverName:
+          type: string
+          x-go-name: ServerName
+        validity:
+          $ref: '#/components/schemas/Duration'
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - caFile
+        - certFile
+        - commonName
+        - keyFile
+        - options
+        - organization
+        - secure
+        - serverName
+        - validity
+      x-apifox-folder: ''
+    SockOptsConfig:
+      properties:
+        mark:
+          format: int64
+          type: integer
+          x-go-name: Mark
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - mark
+      x-apifox-folder: ''
+    NodeConfig:
+      properties:
+        addr:
+          type: string
+          x-go-name: Addr
+        auth: &ref_1
+          $ref: '#/components/schemas/AuthConfig'
+        bypass:
+          type: string
+          x-go-name: Bypass
+        bypasses:
+          items:
+            type: string
+          type: array
+          x-go-name: Bypasses
+        connector:
+          $ref: '#/components/schemas/ConnectorConfig'
+        dialer:
+          $ref: '#/components/schemas/DialerConfig'
+        host:
+          type: string
+          x-go-name: Host
+        hosts:
+          type: string
+          x-go-name: Hosts
+        http:
+          $ref: '#/components/schemas/HTTPNodeConfig'
+        interface:
+          type: string
+          x-go-name: Interface
+        metadata:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Metadata
+          x-apifox-orders: []
+        name:
+          type: string
+          x-go-name: Name
+        network:
+          type: string
+          x-go-name: Network
+        path:
+          type: string
+          x-go-name: Path
+        protocol:
+          type: string
+          x-go-name: Protocol
+        resolver:
+          type: string
+          x-go-name: Resolver
+        sockopts:
+          $ref: '#/components/schemas/SockOptsConfig'
+        tls:
+          $ref: '#/components/schemas/TLSNodeConfig'
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - addr
+        - auth
+        - bypass
+        - bypasses
+        - connector
+        - dialer
+        - host
+        - hosts
+        - http
+        - interface
+        - metadata
+        - name
+        - network
+        - path
+        - protocol
+        - resolver
+        - sockopts
+        - tls
+      x-apifox-folder: ''
+    HTTPNodeConfig:
+      properties:
+        header:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Header
+          x-apifox-orders: []
+        host:
+          type: string
+          x-go-name: Host
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - header
+        - host
+      x-apifox-folder: ''
+    Duration:
+      description: |-
+        A Duration represents the elapsed time between two instants
+        as an int64 nanosecond count. The representation limits the
+        largest representable duration to approximately 290 years.
+      format: int64
+      type: integer
+      x-go-package: time
+      x-apifox-folder: ''
+    DialerConfig:
+      properties:
+        auth: *ref_1
+        metadata:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Metadata
+          x-apifox-orders: []
+        tls: &ref_2
+          $ref: '#/components/schemas/TLSConfig'
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - auth
+        - metadata
+        - tls
+        - type
+      x-apifox-folder: ''
+    ConnectorConfig:
+      properties:
+        auth: *ref_1
+        metadata:
+          additionalProperties:
+            type: string
+          type: object
+          x-go-name: Metadata
+          x-apifox-orders: []
+        tls: *ref_2
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - auth
+        - metadata
+        - tls
+        - type
+      x-apifox-folder: ''
+    AuthConfig:
+      properties:
+        password:
+          type: string
+          x-go-name: Password
+        username:
+          type: string
+          x-go-name: Username
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - password
+        - username
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
