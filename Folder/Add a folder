@@ -1,0 +1,113 @@
+# Add a folder
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/folder/add:
+    post:
+      summary: Add a folder
+      deprecated: false
+      description: Add a folder
+      tags:
+        - Folder
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-apifox-orders:
+                - folderColor
+                - folderName
+                - sortOrder
+              properties:
+                folderColor:
+                  type: string
+                  description: >
+                    Sets the color value of the folder. Optional values:
+                    `#3370FF`, `#209E91`, `#FB9247`, `#00B8EB`.
+                  default: '#3370FF'
+                folderName:
+                  type: string
+                  description: >
+                    Sets the folder name. Must be unique and cannot duplicate
+                    any existing name.
+                sortOrder:
+                  type: integer
+                  description: |
+                    Sets the sort order.
+              required:
+                - folderColor
+                - folderName
+                - sortOrder
+            example:
+              folderColor: '#3370FF'
+              folderName: test folder
+              sortOrder: 0
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  message:
+                    type: string
+                required:
+                  - code
+                  - message
+                x-apifox-orders:
+                  - code
+                  - message
+              examples:
+                '1':
+                  summary: Exception
+                  value:
+                    code: 12001
+                    message: Folder name already exists. Please choose another name.
+                '2':
+                  summary: Exception
+                  value:
+                    code: 12001
+                    message: Folder name already exists. Please choose another name.
+          headers: {}
+          x-apifox-name: Bad Request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Folder
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409862-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
