@@ -1,0 +1,106 @@
+# Proxy detect
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/proxy/proxyDetect:
+    post:
+      summary: Proxy detect
+      deprecated: false
+      description: 代理检测
+      tags:
+        - Proxy
+        - 代理
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                protocol:
+                  type: string
+                  description: 'Optional values: socks5, https, http, ssh'
+                  default: socks5
+                host:
+                  type: string
+                  description: Proxy host
+                port:
+                  type: integer
+                  description: Proxy port
+                proxyUsername:
+                  type: string
+                  description: Proxy username
+                proxyPassword:
+                  type: string
+                  description: Proxy password
+              required:
+                - protocol
+                - host
+                - port
+                - proxyUsername
+                - proxyPassword
+              x-apifox-orders:
+                - protocol
+                - host
+                - port
+                - proxyUsername
+                - proxyPassword
+            example:
+              protocol: socks5
+              host: 1.2.3.4
+              port: 1234
+              proxyUsername: '1111'
+              proxyPassword: '2222'
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Proxy
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409986-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
