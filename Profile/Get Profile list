@@ -1,0 +1,129 @@
+# Get Profile list
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/profile/getProfiles:
+    post:
+      summary: Get Profile list
+      deprecated: false
+      description: ''
+      tags:
+        - Profile
+        - 窗口
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-apifox-orders:
+                - page
+                - pageSize
+              properties:
+                page:
+                  type: string
+                  title: ''
+                  description: page
+                pageSize:
+                  type: string
+                  title: ''
+                  description: page size
+              required:
+                - page
+                - pageSize
+            example:
+              page: 1
+              pageSize: 10
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                x-apifox-orders: []
+                properties: {}
+              example:
+                list:
+                  - createdBy: Bryan
+                    createdTime: '2025-04-17 06:45:47'
+                    id: 72c466b0f532486588a98c02a6267ef2
+                    openTime: '2025-04-22 23:44:43'
+                    os: Win32
+                    owner: Bryan
+                    product: chrome
+                    profileFolder:
+                      folderColor: '#FB9247'
+                      folderName: Social Media
+                      id: 2c92b02392f6578a0192fae0e4c40011
+                    proxy:
+                      duplicateCheck: false
+                      extractMethod: 1
+                      ipCheckService: ip123in
+                      protocol: direct
+                      proxyMethod: 0
+                    seq: 18
+                    sort: 0
+                    started: 0
+                    status: 2
+                    title: _9
+                page: 3
+                pageSize: 10
+                totalNum: 29
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Profile
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409953-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
