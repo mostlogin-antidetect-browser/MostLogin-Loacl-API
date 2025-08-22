@@ -1,0 +1,131 @@
+# Update basic proxy
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths:
+  /api/proxy/updateBaseProxy:
+    post:
+      summary: Update basic proxy
+      deprecated: false
+      description: ''
+      tags:
+        - Proxy
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          example: ''
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              x-apifox-orders:
+                - id
+                - protocol
+                - host
+                - port
+                - proxyUsername
+                - proxyPassword
+                - publicViewing
+                - rotateUrl
+              properties:
+                host:
+                  type: string
+                  description: |
+                    proxy host
+                port:
+                  type: integer
+                  description: proxy port
+                protocol:
+                  type: string
+                  default: socks5
+                  description: 'proxy protocol, could be: socks5, http, https, ssh'
+                proxyPassword:
+                  type: string
+                  description: proxy password
+                proxyUsername:
+                  type: string
+                  description: proxy username
+                publicViewing:
+                  type: integer
+                  default: 0
+                  description: |
+                    Access permissions. Optional values:
+
+                    0: Me
+                    1: Team view
+                    2: Team edit
+                rotateUrl:
+                  type: string
+                  description: >
+                    If your proxy information supports refreshing via
+                    `rotateUrl`, you can fill in this field.
+                id:
+                  type: string
+                  description: the proxy ID
+              required:
+                - host
+                - port
+                - protocol
+                - proxyPassword
+                - proxyUsername
+                - publicViewing
+                - rotateUrl
+                - id
+            examples: {}
+      responses:
+        '200':
+          description: Default Response
+          headers: {}
+          x-apifox-name: OK
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                title: ''
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    description: Error code
+                  message:
+                    type: string
+                    description: Error message
+                x-apifox-orders:
+                  - code
+                  - message
+                required:
+                  - code
+                  - message
+          headers: {}
+          x-apifox-name: Bad request
+      security:
+        - apikey-header-Authorization: []
+      x-apifox-folder: Proxy
+      x-apifox-status: released
+      x-run-in-apifox: https://app.apifox.com/web/project/6928540/apis/api-334409989-run
+components:
+  schemas: {}
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
