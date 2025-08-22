@@ -101,7 +101,7 @@ MostLogin: Free Anti-Detect Browser
 <br />
 
 > ## Contect us
-📩 [website](https://www.mostlogin.com/ )
+📩 [Website](https://www.mostlogin.com/ )
 
 📩 [Download](https://www.mostlogin.com/download)
 
@@ -119,4 +119,4 @@ MostLogin: Free Anti-Detect Browser
 
 📩 [Instagram](https://www.instagram.com/mostlogin_com?igsh=YWZsOHVxemltcTR4)
 
-
+👉[Full API functionality documentation](https://apidocs.mostlogin.com/)
