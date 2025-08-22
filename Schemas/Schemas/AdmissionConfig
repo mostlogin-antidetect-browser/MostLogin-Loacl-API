@@ -1,0 +1,205 @@
+# AdmissionConfig
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.1
+info:
+  title: ''
+  description: ''
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    TLSOptions:
+      properties:
+        cipherSuites:
+          items:
+            type: string
+          type: array
+          x-go-name: CipherSuites
+        maxVersion:
+          type: string
+          x-go-name: MaxVersion
+        minVersion:
+          type: string
+          x-go-name: MinVersion
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - cipherSuites
+        - maxVersion
+        - minVersion
+      x-apifox-folder: ''
+    TLSConfig:
+      properties:
+        caFile:
+          type: string
+          x-go-name: CAFile
+        certFile:
+          type: string
+          x-go-name: CertFile
+        commonName:
+          type: string
+          x-go-name: CommonName
+        keyFile:
+          type: string
+          x-go-name: KeyFile
+        options:
+          $ref: '#/components/schemas/TLSOptions'
+        organization:
+          type: string
+          x-go-name: Organization
+        secure:
+          type: boolean
+          x-go-name: Secure
+        serverName:
+          type: string
+          x-go-name: ServerName
+        validity: &ref_0
+          $ref: '#/components/schemas/Duration'
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - caFile
+        - certFile
+        - commonName
+        - keyFile
+        - options
+        - organization
+        - secure
+        - serverName
+        - validity
+      x-apifox-folder: ''
+    RedisLoader:
+      properties:
+        addr:
+          type: string
+          x-go-name: Addr
+        db:
+          format: int64
+          type: integer
+          x-go-name: DB
+        key:
+          type: string
+          x-go-name: Key
+        password:
+          type: string
+          x-go-name: Password
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - addr
+        - db
+        - key
+        - password
+        - type
+      x-apifox-folder: ''
+    PluginConfig:
+      properties:
+        addr:
+          type: string
+          x-go-name: Addr
+        timeout: *ref_0
+        tls:
+          $ref: '#/components/schemas/TLSConfig'
+        token:
+          type: string
+          x-go-name: Token
+        type:
+          type: string
+          x-go-name: Type
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - addr
+        - timeout
+        - tls
+        - token
+        - type
+      x-apifox-folder: ''
+    HTTPLoader:
+      properties:
+        timeout: *ref_0
+        url:
+          type: string
+          x-go-name: URL
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - timeout
+        - url
+      x-apifox-folder: ''
+    FileLoader:
+      properties:
+        path:
+          type: string
+          x-go-name: Path
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - path
+      x-apifox-folder: ''
+    Duration:
+      description: |-
+        A Duration represents the elapsed time between two instants
+        as an int64 nanosecond count. The representation limits the
+        largest representable duration to approximately 290 years.
+      format: int64
+      type: integer
+      x-go-package: time
+      x-apifox-folder: ''
+    AdmissionConfig:
+      properties:
+        file:
+          $ref: '#/components/schemas/FileLoader'
+        http:
+          $ref: '#/components/schemas/HTTPLoader'
+        matchers:
+          items:
+            type: string
+          type: array
+          x-go-name: Matchers
+        name:
+          type: string
+          x-go-name: Name
+        plugin:
+          $ref: '#/components/schemas/PluginConfig'
+        redis:
+          $ref: '#/components/schemas/RedisLoader'
+        reload: *ref_0
+        reverse:
+          description: DEPRECATED by whitelist since beta.4
+          type: boolean
+          x-go-name: Reverse
+        whitelist:
+          type: boolean
+          x-go-name: Whitelist
+      type: object
+      x-go-package: github.com/go-gost/x/config
+      x-apifox-orders:
+        - file
+        - http
+        - matchers
+        - name
+        - plugin
+        - redis
+        - reload
+        - reverse
+        - whitelist
+      x-apifox-folder: ''
+  securitySchemes:
+    apikey-header-Authorization:
+      type: apiKey
+      in: header
+      name: Authorization
+servers:
+  - url: http://127.0.0.1:30898
+    description: Prod Env
+security:
+  - apikey-header-Authorization: []
+
+```
